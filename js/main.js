@@ -80,14 +80,21 @@ function processMessage(message) {
         aiMsg.className = 'message ai';
         
         const lowerMsg = message.toLowerCase();
-        if (lowerMsg.includes('price') || lowerMsg.includes('cost')) {
+        if (lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('how much')) {
             aiMsg.textContent = 'Our services start from £15 for beard grooming, £25 for haircuts, and £30 for hot towel shaves. Check our Services page for full pricing!';
-        } else if (lowerMsg.includes('book')) {
+        } else if (lowerMsg.includes('book') || lowerMsg.includes('appointment')) {
             aiMsg.textContent = 'You can book online through our Booking page or call us at 01234 567 890. Would you like me to help you with the booking process?';
-        } else if (lowerMsg.includes('hour') || lowerMsg.includes('open')) {
+        } else if (lowerMsg.includes('hour') || lowerMsg.includes('open') || lowerMsg.includes('close')) {
             aiMsg.textContent = 'We\'re open Mon-Fri 9AM-7PM, Sat 8AM-6PM, Sun 10AM-4PM.';
+        } else if (lowerMsg.includes('barber') || lowerMsg.includes
+                           } else if (lowerMsg.includes('barber') || lowerMsg.includes('stylist')) {
+            aiMsg.textContent = 'We have 4 expert barbers: Marcus (fade specialist), James (beard expert), Alex (style consultant), and Sam (master barber). Check our Our Barbers page to learn more!';
+        } else if (lowerMsg.includes('location') || lowerMsg.includes('address') || lowerMsg.includes('where')) {
+            aiMsg.textContent = 'We are located at 13 Orsett Road, Grays, Essex, RM17 5DS. Visit our Contact page for directions and map!';
+        } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+            aiMsg.textContent = 'Hello! Welcome to Signature Barbers. How can I assist you today?';
         } else {
-            aiMsg.textContent = 'Thanks for your message! I can help with bookings, pricing, or questions about our services.';
+            aiMsg.textContent = 'Thanks for your message! I can help with bookings, pricing, barber information, or questions about our services.';
         }
         
         chatMessages.appendChild(aiMsg);
@@ -106,3 +113,12 @@ if (chatInput) {
         }
     });
 }
+
+// Close chat when clicking outside
+document.addEventListener('click', (e) => {
+    if (chatContainer && chatContainer.classList.contains('active')) {
+        if (!chatContainer.contains(e.target) && !chatToggle.contains(e.target)) {
+            chatContainer.classList.remove('active');
+        }
+    }
+});
