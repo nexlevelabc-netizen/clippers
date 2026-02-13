@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Barbers - Our Barbers</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Rotating Logo -->
+    <div class="rotating-logo">
+        <div class="logo-circle"></div>
+        <div class="rotating-text">
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="barbers.html" class="active">Our Barbers</a>
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html" class="phone-icon">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Meet Our Barbers</h1>
+            <p>Expert craftsmen dedicated to your style</p>
+        </div>
+    </section>
+
+    <!-- Barbers Grid -->
+    <section class="barbers-page">
+        <div class="container">
+            <div class="barbers-grid">
+                <div class="barber-profile">
+                    <div class="barber-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Marcus Thompson</h3>
+                    <p class="barber-title">Fade Specialist & Master Barber</p>
+                    <p class="barber-bio">With over 12 years of experience, Marcus has mastered the art of precision fades. He's known for his attention to detail and ability to create custom looks that complement each client's features.</p>
+                    <div class="barber-specialties">
+                        <span>Fades</span>
+                        <span>Modern Cuts</span>
+                        <span>Consultations</span>
+                    </div>
+                    <a href="booking.html?barber=marcus" class="btn-small">Book Marcus</a>
+                </div>
+                
+                <div class="barber-profile">
+                    <div class="barber-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>James Chen</h3>
+                    <p class="barber-title">Beard Expert & Hot Towel Specialist</p>
+                    <p class="barber-bio">James has transformed beard grooming into an art form. His hot towel shaves and beard sculpting techniques have earned him a loyal following. He believes a great beard starts with great care.</p>
+                    <div class="barber-specialties">
+                        <span>Beard Grooming</span>
+                        <span>Hot Towel Shaves</span>
+                        <span>Trims</span>
+                    </div>
+                    <a href="booking.html?barber=james" class="btn-small">Book James</a>
+                </div>
+                
+                <div class="barber-profile">
+                    <div class="barber-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Alex Rivera</h3>
+                    <p class="barber-title">Style Consultant & Creative Director</p>
+                    <p class="barber-bio">Alex brings a creative eye to every cut. He specializes in helping clients discover new styles that enhance their natural features. His consultations are thorough and personalized.</p>
+                    <div class="barber-specialties">
+                        <span>Style Consults</span>
+                        <span>Creative Cuts</span>
+                        <span>Colouring</span>
+                    </div>
+                    <a href="booking.html?barber=alex" class="btn-small">Book Alex</a>
+                </div>
+                
+                <div class="barber-profile">
+                    <div class="barber-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Sam Wilson</h3>
+                    <p class="barber-title">Master Barber & Traditional Specialist</p>
+                    <p class="barber-bio">With 15 years in the industry, Sam combines traditional techniques with modern trends. He's particularly skilled in classic cuts and has trained under some of the best barbers in London.</p>
+                    <div class="barber-specialties">
+                        <span>Classic Cuts</span>
+                        <span>Traditional Shaves</span>
+                        <span>All Services</span>
+                    </div>
+                    <a href="booking.html?barber=sam" class="btn-small">Book Sam</a>
+                </div>
+            </div>
+
+            <!-- Barbershop Environment -->
+            <div class="environment-section">
+                <h2>Our Barbershop Environment</h2>
+                <div class="environment-grid">
+                    <div class="environment-card">
+                        <i class="fas fa-wind"></i>
+                        <h4>Clean & Sanitized</h4>
+                        <p>We maintain the highest standards of cleanliness and hygiene</p>
+                    </div>
+                    <div class="environment-card">
+                        <i class="fas fa-coffee"></i>
+                        <h4>Relaxed Atmosphere</h4>
+                        <p>Enjoy a drink and conversation in our comfortable space</p>
+                    </div>
+                    <div class="environment-card">
+                        <i class="fas fa-music"></i>
+                        <h4>Modern Vibe</h4>
+                        <p>Contemporary design with classic barbershop comfort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h4>AI Assistant</h4>
+                <button class="chat-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages">
+                <div class="message ai">Want to know more about our barbers?</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message...">
+                <button class="voice-btn"><i class="fas fa-microphone"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

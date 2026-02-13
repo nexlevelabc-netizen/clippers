@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Barbers - Book Now</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Rotating Logo -->
+    <div class="rotating-logo">
+        <div class="logo-circle"></div>
+        <div class="rotating-text">
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+            <span>SIGNATURE</span>
+            <span>BARBERS</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="barbers.html">Our Barbers</a>
+        <a href="booking.html" class="active">Book Now</a>
+        <a href="contact.html" class="phone-icon">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Book Your Appointment</h1>
+            <p>Simple, fast, and secure booking</p>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-page">
+        <div class="container">
+            <div class="booking-wrapper">
+                <!-- Booking Steps -->
+                <div class="booking-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>Choose Service</h4>
+                            <p>Select what you need</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>Pick Barber & Time</h4>
+                            <p>Select your preferences</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>Confirm & Pay</h4>
+                            <p>Secure checkout</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <form class="booking-form">
+                    <!-- Step 1: Service Selection -->
+                    <div class="form-step active" id="step1">
+                        <h3>Select Your Service</h3>
+                        <div class="service-options">
+                            <label class="service-option">
+                                <input type="radio" name="service" value="precision-cut">
+                                <div class="option-content">
+                                    <h4>Precision Fade & Modern Cut</h4>
+                                    <p>£25 - 30 mins</p>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="beard-grooming">
+                                <div class="option-content">
+                                    <h4>Beard Shaping & Grooming</h4>
+                                    <p>£15 - 20 mins</p>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="hot-towel">
+                                <div class="option-content">
+                                    <h4>Hot Towel Shave</h4>
+                                    <p>£30 - 40 mins</p>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="cut-beard">
+                                <div class="option-content">
+                                    <h4>Cut & Beard Package</h4>
+                                    <p>£35 - 50 mins</p>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="hair-treatment">
+                                <div class="option-content">
+                                    <h4>Hair Treatment</h4>
+                                    <p>From £20 - 25 mins</p>
+                                </div>
+                            </label>
+                        </div>
+                        <button type="button" class="btn-next">Continue to Barber Selection</button>
+                    </div>
+
+                    <!-- Step 2: Barber & Time -->
+                    <div class="form-step" id="step2">
+                        <h3>Select Your Barber</h3>
+                        <div class="barber-options">
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="marcus">
+                                <div class="option-content">
+                                    <h4>Marcus</h4>
+                                    <p>Fade Specialist</p>
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="james">
+                                <div class="option-content">
+                                    <h4>James</h4>
+                                    <p>Beard Expert</p>
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="alex">
+                                <div class="option-content">
+                                    <h4>Alex</h4>
+                                    <p>Style Consultant</p>
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="sam">
+                                <div class="option-content">
+                                    <h4>Sam</h4>
+                                    <p>Master Barber</p>
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="any">
+                                <div class="option-content">
+                                    <h4>Any Available</h4>
+                                    <p>First available barber</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <h3>Select Date & Time</h3>
+                        <div class="datetime-selection">
+                            <input type="date" id="booking-date" class="date-input">
+                            <div class="time-slots">
+                                <button type="button" class="time-slot">9:00 AM</button>
+                                <button type="button" class="time-slot">10:00 AM</button>
+                                <button type="button" class="time-slot">11:00 AM</button>
+                                <button type="button" class="time-slot">12:00 PM</button>
+                                <button type="button" class="time-slot">1:00 PM</button>
+                                <button type="button" class="time-slot">2:00 PM</button>
+                                <button type="button" class="time-slot">3:00 PM</button>
+                                <button type="button" class="time-slot">4:00 PM</button>
+                                <button type="button" class="time-slot">5:00 PM</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev">Back</button>
+                            <button type="button" class="btn-next">Continue to Payment</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Personal Info & Payment -->
+                    <div class="form-step" id="step3">
+                        <h3>Your Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Special Requests (Optional)</label>
+                            <textarea id="notes" rows="3"></textarea>
+                        </div>
+
+                        <h3>Payment Details</h3>
+                        <div class="payment-summary">
+                            <div class="summary-item">
+                                <span>Service:</span>
+                                <span id="summary-service">Not selected</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Barber:</span>
+                                <span id="summary-barber">Not selected</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Date & Time:</span>
+                                <span id="summary-datetime">Not selected</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Total:</span>
+                                <span id="summary-total">£0</span>
+                            </div>
+                        </div>
+
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card" checked>
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash">
+                                <i class="fas fa-money-bill"></i>
+                                <span>Pay in Shop</span>
+                            </label>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev">Back</button>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-lock"></i> Confirm Booking
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Alternative Booking -->
+            <div class="alternative-booking">
+                <p>Prefer to book by phone?</p>
+                <a href="tel:+441234567890" class="phone-link">
+                    <i class="fas fa-phone-alt"></i> 01234 567 890
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h4>AI Assistant</h4>
+                <button class="chat-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages">
+                <div class="message ai">Need help with booking?</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message...">
+                <button class="voice-btn"><i class="fas fa-microphone"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
