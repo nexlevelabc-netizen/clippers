@@ -166,21 +166,21 @@
                         <div class="datetime-selection">
                             <input type="date" id="booking-date" class="date-input">
                             <div class="time-slots">
-                                <button type="button" class="time-slot">9:00 AM</button>
-                                <button type="button" class="time-slot">10:00 AM</button>
-                                <button type="button" class="time-slot">11:00 AM</button>
-                                <button type="button" class="time-slot">12:00 PM</button>
-                                <button type="button" class="time-slot">1:00 PM</button>
-                                <button type="button" class="time-slot">2:00 PM</button>
-                                <button type="button" class="time-slot">3:00 PM</button>
-                                <button type="button" class="time-slot">4:00 PM</button>
-                                <button type="button" class="time-slot">5:00 PM</button>
+                                <button type="button" class="time-slot" onclick="selectTime(this)">9:00 AM</button>
+                                <button type="button" class="time-slot" onclick="selectTime(this)">10:00 AM</button>
+                                <button type="button" class="time-slot" onclick="selectTime(this)">11:00 AM</button>
+                                <button type="button" class="time-slot" onclick="selectTime(this)">12:00 PM</button>
+                               <button type="button" class="time-slot" onclick="selectTime(this)">1:00 PM</button>
+                               <button type="button" class="time-slot" onclick="selectTime(this)">2:00 PM</button>
+                               <button type="button" class="time-slot" onclick="selectTime(this)">3:00 PM</button>
+                               <button type="button" class="time-slot" onclick="selectTime(this)">4:00 PM</button>
+                               <button type="button" class="time-slot" onclick="selectTime(this)">5:00 PM</button>
                             </div>
                         </div>
                         
                         <div class="form-navigation">
-                            <button type="button" class="btn-prev">Back</button>
-                            <button type="button" class="btn-next">Continue to Payment</button>
+                            <button type="button" class="btn-prev" onclick="prevStep(2)">Back</button>
+                            <button type="button" class="btn-next" onclick="nextStep(2)">Continue to Payment</button>
                         </div>
                     </div>
 
