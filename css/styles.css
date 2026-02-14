@@ -497,19 +497,19 @@ body {
     font-weight: 600;
 }
 
-/* FIXED: Environment section heading visibility */
+/* ENVIRONMENT SECTION - FIXED with !important */
 .environment-section {
     margin-top: 4rem;
     text-align: center;
 }
 
 .environment-section h2 {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    color: var(--black);
-    margin-bottom: 2rem;
-    font-weight: 700;
-    opacity: 1;
+    font-family: var(--font-serif) !important;
+    font-size: 2.2rem !important;
+    color: #000000 !important;
+    margin-bottom: 2rem !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
 }
 
 .environment-grid {
@@ -530,16 +530,6 @@ body {
     font-size: 2.5rem;
     color: var(--blue-purple);
     margin-bottom: 1rem;
-}
-
-.environment-card h4 {
-    color: var(--black);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.environment-card p {
-    color: var(--gray-dark);
 }
 
 /* Booking Page */
@@ -603,27 +593,12 @@ body {
     color: var(--gray-medium);
 }
 
-.step-info h4 {
-    color: var(--black);
-    font-weight: 600;
-}
-
-.step-info p {
-    color: var(--gray-dark);
-}
-
 .form-step {
     display: none;
 }
 
 .form-step.active {
     display: block;
-}
-
-.form-step h3 {
-    color: var(--black);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
 }
 
 .service-options,
@@ -665,15 +640,6 @@ body {
     border-radius: 8px;
 }
 
-.option-content h4 {
-    color: var(--black);
-    margin-bottom: 0.25rem;
-}
-
-.option-content p {
-    color: var(--gray-dark);
-}
-
 .datetime-selection {
     margin: 2rem 0;
 }
@@ -684,7 +650,6 @@ body {
     border: 1px solid var(--yellow-medium);
     border-radius: 8px;
     margin-bottom: 1rem;
-    color: var(--black);
 }
 
 .time-slots {
@@ -700,8 +665,6 @@ body {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: var(--black);
-    font-weight: 500;
 }
 
 .time-slot:hover,
@@ -757,7 +720,6 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
-    color: var(--gray-dark);
 }
 
 .summary-item.total {
@@ -766,7 +728,6 @@ body {
     border-top: 1px solid var(--yellow-medium);
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--black);
 }
 
 .payment-methods {
@@ -784,7 +745,6 @@ body {
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-    color: var(--gray-dark);
 }
 
 .payment-option i {
@@ -792,18 +752,18 @@ body {
     color: var(--blue-purple);
 }
 
-/* FIXED: Alternative booking text visibility */
+/* ALTERNATIVE BOOKING - FIXED with !important */
 .alternative-booking {
     text-align: center;
     margin-top: 2rem;
 }
 
 .alternative-booking p {
-    font-size: 1.2rem;
-    color: var(--black);
-    margin-bottom: 1rem;
-    font-weight: 600;
-    opacity: 1;
+    font-size: 1.2rem !important;
+    color: #000000 !important;
+    margin-bottom: 1rem !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
 }
 
 .phone-link {
@@ -835,14 +795,14 @@ body {
     gap: 3rem;
 }
 
-/* FIXED: Get In Touch heading visibility */
+/* GET IN TOUCH - FIXED with !important */
 .contact-info h2 {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    color: var(--black);
-    margin-bottom: 2rem;
-    font-weight: 700;
-    opacity: 1;
+    font-family: var(--font-serif) !important;
+    font-size: 2rem !important;
+    color: #000000 !important;
+    margin-bottom: 2rem !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
 }
 
 .contact-card {
@@ -893,11 +853,6 @@ body {
 
 .contact-details h3 {
     margin-bottom: 0.5rem;
-    color: var(--black);
-}
-
-.contact-details p {
-    color: var(--gray-dark);
 }
 
 .contact-phone {
@@ -915,7 +870,6 @@ body {
 .hour-item {
     display: flex;
     justify-content: space-between;
-    color: var(--gray-dark);
 }
 
 .social-links {
@@ -953,11 +907,6 @@ body {
     margin-top: 2rem;
 }
 
-.booking-cta h3 {
-    color: var(--black);
-    margin-bottom: 1rem;
-}
-
 .btn-primary {
     display: inline-block;
     padding: 1rem 2rem;
@@ -986,21 +935,11 @@ body {
     padding: 2rem;
 }
 
-.location-section h2 {
-    color: var(--black);
-    margin-bottom: 1rem;
-}
-
 .contact-map {
     height: 300px;
     border-radius: 8px;
     overflow: hidden;
     margin: 1.5rem 0;
-}
-
-.location-info h3 {
-    color: var(--black);
-    margin-bottom: 1rem;
 }
 
 .transport-list {
@@ -1014,7 +953,6 @@ body {
     padding: 1rem;
     background: var(--gray-light);
     border-radius: 8px;
-    color: var(--gray-dark);
 }
 
 .transport-list i {
@@ -1073,10 +1011,6 @@ body {
     align-items: center;
 }
 
-.chat-header h4 {
-    color: var(--white);
-}
-
 .chat-close {
     background: none;
     border: none;
@@ -1102,7 +1036,6 @@ body {
     padding: 0.75rem 1rem;
     border-radius: 12px 12px 12px 0;
     border: 1px solid var(--yellow-medium);
-    color: var(--gray-dark);
 }
 
 .message.user {
@@ -1126,7 +1059,6 @@ body {
     border: 1px solid var(--yellow-medium);
     border-radius: 8px;
     font-family: var(--font-sans);
-    color: var(--black);
 }
 
 .voice-btn {
@@ -1136,7 +1068,6 @@ body {
     background: var(--yellow-medium);
     border: none;
     cursor: pointer;
-    color: var(--black);
 }
 
 /* Form Styles */
@@ -1155,7 +1086,6 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: var(--gray-dark);
 }
 
 .form-group input,
@@ -1165,7 +1095,6 @@ body {
     border: 1px solid var(--yellow-medium);
     border-radius: 8px;
     font-family: var(--font-sans);
-    color: var(--black);
 }
 
 .form-group textarea {
@@ -1183,7 +1112,6 @@ body {
     font-size: 0.9rem;
     opacity: 0.9;
     margin-top: 0.25rem;
-    color: var(--gray-dark);
 }
 
 /* Custom Marker for Map */
