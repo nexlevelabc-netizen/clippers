@@ -45,7 +45,7 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Rotating Logo */
+/* Rotating Logo - FIXED: Now only shows 4 spans (2x SIGNATURE, 2x BARBERS) */
 .rotating-logo {
     position: fixed;
     top: 20px;
@@ -84,14 +84,11 @@ body {
     white-space: nowrap;
 }
 
+/* UPDATED: Only 4 spans now */
 .rotating-text span:nth-child(1) { transform: rotate(0deg); }
-.rotating-text span:nth-child(2) { transform: rotate(45deg); }
-.rotating-text span:nth-child(3) { transform: rotate(90deg); }
-.rotating-text span:nth-child(4) { transform: rotate(135deg); }
-.rotating-text span:nth-child(5) { transform: rotate(180deg); }
-.rotating-text span:nth-child(6) { transform: rotate(225deg); }
-.rotating-text span:nth-child(7) { transform: rotate(270deg); }
-.rotating-text span:nth-child(8) { transform: rotate(315deg); }
+.rotating-text span:nth-child(2) { transform: rotate(90deg); }
+.rotating-text span:nth-child(3) { transform: rotate(180deg); }
+.rotating-text span:nth-child(4) { transform: rotate(270deg); }
 
 @keyframes rotateLogo {
     0% { transform: rotate(0deg); }
@@ -124,6 +121,7 @@ body {
     font-family: var(--font-sans) !important;
     font-size: 1rem !important;
     line-height: normal !important;
+    white-space: nowrap !important; /* ADDED: Prevents text from wrapping/merging */
 }
 
 .main-nav a:hover {
@@ -164,7 +162,7 @@ body {
     z-index: 1001;
 }
 
-/* Hero Section - COMPLETELY UPDATED */
+/* Hero Section - FIXED: Full view images without cropping */
 .hero {
     height: 100vh;
     width: 100%;
@@ -197,14 +195,13 @@ body {
 .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This makes images cover the full area */
-    object-position: center; /* Centers the image */
+    object-fit: contain; /* CHANGED from 'cover' to 'contain' to show full images */
+    object-position: center;
+    background-color: var(--primary-yellow); /* Adds background for letterboxing */
     display: block;
 }
 
-/* REMOVED slide-overlay that was making images faint */
-
-/* Welcome Section - Adjust padding to account for full-height hero */
+/* Welcome Section */
 .welcome {
     padding: 4rem 1.5rem;
     text-align: center;
