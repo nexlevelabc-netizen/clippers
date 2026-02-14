@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Hero Section with Rolling Background - EXACTLY like my design */
+        /* Hero Section with Rolling Background - EXACTLY like your one */
         * {
             margin: 0;
             padding: 0;
@@ -15,12 +15,13 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            background: #0b0b0b;
             min-height: 100vh;
+            color: #262626;
         }
 
-        /* Navigation - Your existing navigation */
+        /* Navigation - Keeping your existing */
         .main-nav {
             position: fixed;
             top: 20px;
@@ -85,7 +86,7 @@
             z-index: 1001;
         }
 
-        /* Hero Section - EXACTLY like my design */
+        /* Hero Section - EXACTLY like your one with black background */
         .hero {
             width: 1280px;
             max-width: 95vw;
@@ -94,13 +95,13 @@
             overflow: hidden;
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 215, 0, 0.2) inset;
             position: relative;
-            margin: 20px auto;
+            margin: 80px auto 20px;
         }
 
         .rolling-bg {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 500px;
             overflow: hidden;
             background: #1e1a17;
         }
@@ -130,7 +131,7 @@
             animation-play-state: paused;
         }
 
-        /* Dark overlay - exactly like my design */
+        /* Dark overlay - exactly like your one */
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -231,11 +232,11 @@
             transform: translateY(-3px);
         }
 
-        /* Spinning text - MOVED TO TOP LEFT */
+        /* Spinning text - exactly where it was in your one (bottom right) */
         .spinning-wrapper {
             position: absolute;
-            top: 30px;
-            left: 30px;
+            bottom: 30px;
+            right: 40px;
             width: 140px;
             height: 140px;
             z-index: 30;
@@ -271,7 +272,7 @@
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 4px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', 'Poppins', sans-serif;
             text-transform: uppercase;
         }
 
@@ -289,36 +290,24 @@
             pointer-events: none;
         }
 
-        /* Welcome Section - Keep this */
+        /* Welcome Section - Simplified as requested */
         .welcome {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.5rem;
             text-align: center;
-            background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+            background: #0b0b0b;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .welcome h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #0A0A0A;
-            text-shadow: none;
-        }
-
         .welcome .tagline {
             font-size: 1.5rem;
-            color: #7C3AED;
-            margin-bottom: 2rem;
+            color: #e0b974;
+            margin-bottom: 0;
             font-weight: 600;
-        }
-
-        .welcome-text {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #262626;
+            letter-spacing: 1px;
+            background: transparent;
+            backdrop-filter: none;
+            padding: 0;
         }
 
         /* Chat Widget - Your existing */
@@ -456,6 +445,14 @@
                 display: block;
             }
             
+            .hero {
+                margin-top: 70px;
+            }
+            
+            .rolling-bg {
+                height: 400px;
+            }
+            
             .overlay {
                 padding: 2rem;
             }
@@ -467,8 +464,8 @@
             .spinning-wrapper {
                 width: 100px;
                 height: 100px;
-                top: 15px;
-                left: 15px;
+                bottom: 15px;
+                right: 15px;
             }
             
             .circle-text {
@@ -495,7 +492,7 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Hero Section - EXACTLY like my design with spinning text at TOP LEFT -->
+    <!-- Hero Section - EXACTLY like your one with black background -->
     <div class="hero">
         <div class="rolling-bg">
             <!-- Image track with your images -->
@@ -510,29 +507,30 @@
                 <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
             </div>
             
-            <!-- Overlay with text and buttons - exactly like my design -->
+            <!-- Overlay with text and buttons - exactly like your one -->
             <div class="overlay">
                 <div class="overlay-content">
                     <div class="tagline">✂️ PRECISION IN EVERY CUT</div>
                     <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
                     <div class="address">Conveniently located near Grays Town centre</div>
                     <div class="buttons">
-                        <a href="https://maps.google.com/?q=Grays+Town+centre" target="_blank" class="btn btn-primary">Find Us</a>
+                        <!-- Find Us now links to contact page instead of external map -->
+                        <a href="contact.html" class="btn btn-primary">Find Us</a>
                         <a href="booking.html" class="btn btn-outline">Book Now</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Spinning white SIGNATURE text - MOVED TO TOP LEFT -->
+            <!-- Spinning white SIGNATURE text - EXACTLY where it was in your one (bottom right) -->
             <div class="spinning-wrapper">
                 <div class="circle-text">
                     <svg viewBox="0 0 100 100">
                         <defs>
-                            <path id="topLeftCircle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                            <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
                         </defs>
                         <!-- Only SIGNATURE text, white, no symbols -->
                         <text fill="#FFFFFF" font-weight="700" font-size="14" letter-spacing="4">
-                            <textPath href="#topLeftCircle" startOffset="0%">SIGNATURE SIGNATURE SIGNATURE</textPath>
+                            <textPath href="#circlePath" startOffset="0%">SIGNATURE SIGNATURE SIGNATURE</textPath>
                         </text>
                     </svg>
                 </div>
@@ -541,18 +539,12 @@
         </div>
     </div>
 
-    <!-- Welcome Section - Keep this -->
+    <!-- Welcome Section - ONLY the tagline as requested -->
     <section class="welcome">
         <div class="container">
-            <h1>Signature Barbers – Grays</h1>
             <p class="tagline">Modern Grooming. Smart Booking. Personal Service.</p>
-            <div class="welcome-text">
-                <p>Experience the perfect blend of traditional barbering and modern convenience. Our skilled barbers deliver precision cuts and exceptional service in a relaxed, professional environment.</p>
-            </div>
         </div>
     </section>
-
-    <!-- STATS SECTION REMOVED - as requested -->
 
     <!-- AI Chat Widget - Your existing -->
     <div class="chat-widget">
