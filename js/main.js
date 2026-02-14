@@ -1,23 +1,27 @@
 // Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mainNav = document.querySelector('.main-nav');
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
 
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-        mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
-}
+    if (mobileMenuBtn && mainNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+    }
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('.main-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('active');
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
     });
 });
 
@@ -86,8 +90,7 @@ function processMessage(message) {
             aiMsg.textContent = 'You can book online through our Booking page or call us at 01234 567 890. Would you like me to help you with the booking process?';
         } else if (lowerMsg.includes('hour') || lowerMsg.includes('open') || lowerMsg.includes('close')) {
             aiMsg.textContent = 'We\'re open Mon-Fri 9AM-7PM, Sat 8AM-6PM, Sun 10AM-4PM.';
-        } else if (lowerMsg.includes('barber') || lowerMsg.includes
-                           } else if (lowerMsg.includes('barber') || lowerMsg.includes('stylist')) {
+        } else if (lowerMsg.includes('barber') || lowerMsg.includes('stylist')) {
             aiMsg.textContent = 'We have 4 expert barbers: Marcus (fade specialist), James (beard expert), Alex (style consultant), and Sam (master barber). Check our Our Barbers page to learn more!';
         } else if (lowerMsg.includes('location') || lowerMsg.includes('address') || lowerMsg.includes('where')) {
             aiMsg.textContent = 'We are located at 13 Orsett Road, Grays, Essex, RM17 5DS. Visit our Contact page for directions and map!';
