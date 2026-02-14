@@ -86,7 +86,7 @@
             z-index: 1001;
         }
 
-        /* Hero Section - EXACTLY like your one with black background */
+        /* Hero Section Container */
         .hero {
             width: 1280px;
             max-width: 95vw;
@@ -98,10 +98,11 @@
             margin: 80px auto 0;
         }
 
+        /* Rolling Gallery - Now only the images, no overlay text */
         .rolling-bg {
             position: relative;
             width: 100%;
-            height: 600px; /* Increased height to accommodate text below */
+            height: 400px; /* Reduced height to leave space for text below */
             overflow: hidden;
             background: #1e1a17;
         }
@@ -131,21 +132,12 @@
             animation-play-state: paused;
         }
 
-        /* Content container - positioned at bottom of rolling background */
+        /* Hero Text Content - Now positioned BELOW the rolling gallery */
         .hero-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            background: #121212;
             padding: 3rem 4rem;
-            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
             color: white;
-            z-index: 20;
-            pointer-events: none;
-        }
-
-        .hero-content * {
-            pointer-events: auto;
+            width: 100%;
         }
 
         .tagline {
@@ -227,10 +219,10 @@
             transform: translateY(-3px);
         }
 
-        /* Spinning text - exactly where it was in your one (bottom right) */
+        /* Spinning text - Positioned relative to the rolling gallery */
         .spinning-wrapper {
             position: absolute;
-            bottom: 200px; /* Moved up to sit above the content */
+            bottom: 20px;
             right: 40px;
             width: 140px;
             height: 140px;
@@ -270,8 +262,6 @@
             font-family: 'Segoe UI', 'Poppins', sans-serif;
             text-transform: uppercase;
         }
-
-        /* DIAMOND REMOVED - no center-diamond class */
 
         /* Welcome Section - Simplified as requested */
         .welcome {
@@ -433,7 +423,7 @@
             }
             
             .rolling-bg {
-                height: 500px;
+                height: 300px;
             }
             
             .hero-content {
@@ -447,7 +437,7 @@
             .spinning-wrapper {
                 width: 100px;
                 height: 100px;
-                bottom: 150px;
+                bottom: 10px;
                 right: 15px;
             }
             
@@ -475,8 +465,9 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Hero Section with Rolling Background -->
+    <!-- Hero Section -->
     <div class="hero">
+        <!-- Rolling Gallery - NO TEXT OVERLAY -->
         <div class="rolling-bg">
             <!-- Image track with your images -->
             <div class="image-track">
@@ -489,19 +480,8 @@
                 <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy">
                 <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
             </div>
-            
-            <!-- Hero Content - MOVED TO BOTTOM of rolling background -->
-            <div class="hero-content">
-                <div class="tagline">✂️ PRECISION IN EVERY CUT</div>
-                <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
-                <div class="address">Conveniently located near Grays Town centre</div>
-                <div class="buttons">
-                    <a href="contact.html" class="btn btn-primary">Find Us</a>
-                    <a href="booking.html" class="btn btn-outline">Book Now</a>
-                </div>
-            </div>
 
-            <!-- Spinning white SIGNATURE text - DIAMOND REMOVED -->
+            <!-- Spinning white SIGNATURE text - on the rolling gallery -->
             <div class="spinning-wrapper">
                 <div class="circle-text">
                     <svg viewBox="0 0 100 100">
@@ -514,7 +494,17 @@
                         </text>
                     </svg>
                 </div>
-                <!-- DIAMOND REMOVED - no center diamond -->
+            </div>
+        </div>
+
+        <!-- Hero Text Content - NOW BELOW the rolling gallery in the empty space -->
+        <div class="hero-content">
+            <div class="tagline">PRECISION IN EVERY CUT</div>
+            <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
+            <div class="address">Conveniently located in Grays Town centre</div>
+            <div class="buttons">
+                <a href="contact.html" class="btn btn-primary">Find Us</a>
+                <a href="booking.html" class="btn btn-outline">Book Now</a>
             </div>
         </div>
     </div>
