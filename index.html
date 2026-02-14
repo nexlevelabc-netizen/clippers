@@ -6,33 +6,110 @@
     <title>Signature Barbers - Grays | Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
-        /* Hero Section with Rolling Background */
+        /* Hero Section with Rolling Background - EXACTLY like my design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+            min-height: 100vh;
+        }
+
+        /* Navigation - Your existing navigation */
+        .main-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            background: transparent;
+        }
+
+        .main-nav a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #0A0A0A;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .main-nav a.active {
+            background: #7C3AED;
+            color: #FFFFFF;
+            border-color: #7C3AED;
+        }
+
+        .main-nav a.phone-icon {
+            background: #F59E0B;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .main-nav a.phone-icon i {
+            margin-right: 5px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #0A0A0A;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section - EXACTLY like my design */
         .hero {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-            margin-top: 0;
-            padding-top: 0;
+            width: 1280px;
+            max-width: 95vw;
             background-color: #121212;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 215, 0, 0.2) inset;
+            position: relative;
+            margin: 20px auto;
         }
 
         .rolling-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100%;
+            height: 600px;
             overflow: hidden;
+            background: #1e1a17;
         }
 
         .image-track {
             display: flex;
             width: max-content;
             height: 100%;
-            animation: rollImages 35s linear infinite;
+            animation: rollImages 28s linear infinite;
             will-change: transform;
         }
 
@@ -53,134 +130,130 @@
             animation-play-state: paused;
         }
 
-        /* Dark overlay for text readability */
-        .hero-overlay {
+        /* Dark overlay - exactly like my design */
+        .overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 90%);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: flex-start;
-            padding: 0 10%;
+            justify-content: center;
+            padding: 3rem 4rem;
+            color: white;
             z-index: 10;
-            color: var(--white);
             pointer-events: none;
         }
 
-        .hero-overlay * {
+        .overlay-content {
             pointer-events: auto;
+            max-width: 600px;
         }
 
-        .hero-tagline {
+        .tagline {
             font-size: 1.2rem;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--yellow-dark);
+            color: #e0b974;
             font-weight: 400;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+            backdrop-filter: blur(2px);
+            display: inline-block;
+            padding: 0.2rem 1rem 0.2rem 0;
         }
 
-        .hero-title {
-            font-family: var(--font-serif);
-            font-size: 4.5rem;
-            font-weight: 700;
+        h1 {
+            font-size: 4rem;
+            font-weight: 600;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            max-width: 700px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            color: var(--white);
+            text-shadow: 2px 2px 10px #00000080;
+            color: white;
         }
 
-        .hero-title span {
-            color: var(--yellow-dark);
-            border-bottom: 3px solid var(--yellow-dark);
-            padding-bottom: 5px;
+        .h1-highlight {
+            color: #e6c27a;
+            border-bottom: 3px solid #e6c27a;
+            padding-bottom: 4px;
         }
 
-        .hero-address {
+        .address {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 300;
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.9);
+            gap: 8px;
         }
-
-        .hero-address i {
-            color: var(--yellow-dark);
+        .address::before {
+            content: '📍';
             font-size: 1.6rem;
         }
 
-        .hero-buttons {
+        .buttons {
             display: flex;
             gap: 20px;
         }
 
-        .hero-btn {
-            padding: 14px 36px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
+        .btn {
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.25s ease;
+            display: inline-block;
             letter-spacing: 1px;
+            border: 2px solid transparent;
+            background: #ffffff20;
+            backdrop-filter: blur(8px);
+            color: white;
+            border-color: #ffffff60;
         }
 
-        .hero-btn-primary {
-            background: var(--yellow-dark);
-            color: var(--black);
-            border-color: var(--yellow-dark);
+        .btn-primary {
+            background: #e6b04c;
+            border-color: #e6b04c;
+            color: #121212;
+            font-weight: 700;
+            box-shadow: 0 8px 20px #e6b04c50;
         }
-
-        .hero-btn-primary:hover {
-            background: #d97706;
+        .btn-primary:hover {
+            background: #f8c56c;
+            border-color: #f8c56c;
+            transform: scale(1.05);
+            color: #0a0a0a;
+        }
+        .btn-outline:hover {
+            background: #ffffff30;
+            border-color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
 
-        .hero-btn-outline {
-            background: transparent;
-            color: var(--white);
-            border-color: rgba(255,255,255,0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .hero-btn-outline:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--white);
-            transform: translateY(-3px);
-        }
-
-        /* Spinning Text - White SIGNATURE only */
+        /* Spinning text - MOVED TO TOP LEFT */
         .spinning-wrapper {
             position: absolute;
-            bottom: 40px;
-            right: 40px;
-            width: 150px;
-            height: 150px;
-            z-index: 20;
+            top: 30px;
+            left: 30px;
+            width: 140px;
+            height: 140px;
+            z-index: 30;
             pointer-events: none;
         }
 
         .circle-text {
-            width: 100%;
-            height: 100%;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            border: 2px solid rgba(255,255,255,0.8);
-            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+            background: #1e1a17cc;
+            backdrop-filter: blur(6px);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 30px rgba(255,255,255,0.2), 0 10px 20px #00000060;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: spin 12s linear infinite;
+            animation: spin 10s linear infinite;
         }
 
         @keyframes spin {
@@ -198,7 +271,7 @@
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 4px;
-            font-family: var(--font-sans);
+            font-family: 'Inter', sans-serif;
             text-transform: uppercase;
         }
 
@@ -207,82 +280,206 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
+            width: 26px;
+            height: 26px;
             background: #FFFFFF;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            box-shadow: 0 0 20px #FFFFFF;
-            z-index: 21;
-            border: 1px solid rgba(0,0,0,0.2);
+            box-shadow: 0 0 15px #FFFFFF;
+            z-index: 32;
+            pointer-events: none;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-overlay {
-                padding: 0 5%;
-                align-items: center;
-                text-align: center;
-                background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%);
-            }
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            .hero-address {
-                font-size: 1.1rem;
-                justify-content: center;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .spinning-wrapper {
-                width: 100px;
-                height: 100px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .hero-btn {
-                padding: 10px 24px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Ensure rotating logo doesn't conflict */
-        .rotating-logo {
-            z-index: 1000;
-        }
-
-        /* Adjust welcome section to match others */
+        /* Welcome Section - Keep this */
         .welcome {
             padding: 4rem 1.5rem;
             text-align: center;
-            background: linear-gradient(135deg, var(--yellow-light), var(--primary-yellow));
-            position: relative;
-            z-index: 10;
+            background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0A0A0A;
+            text-shadow: none;
+        }
+
+        .welcome .tagline {
+            font-size: 1.5rem;
+            color: #7C3AED;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .welcome-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #262626;
+        }
+
+        /* Chat Widget - Your existing */
+        .chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #7C3AED;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .chat-toggle:hover {
+            background: #5B21B6;
+            transform: scale(1.05);
+        }
+
+        .chat-container {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+        }
+
+        .chat-container.active {
+            display: block;
+        }
+
+        .chat-header {
+            background: #7C3AED;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            height: 300px;
+            padding: 1rem;
+            overflow-y: auto;
+            background: #FAFAFA;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            max-width: 80%;
+        }
+
+        .message.ai {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px 12px 12px 0;
+            border: 1px solid #FDE68A;
+        }
+
+        .message.user {
+            background: #7C3AED;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px 12px 0 12px;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #FDE68A;
+            gap: 0.5rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #FDE68A;
+            border-radius: 8px;
+        }
+
+        .voice-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #FDE68A;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                top: 70px;
+                right: 20px;
+                background: white;
+                padding: 1rem;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .main-nav.active {
+                display: flex;
+            }
+            
+            .main-nav a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .overlay {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .spinning-wrapper {
+                width: 100px;
+                height: 100px;
+                top: 15px;
+                left: 15px;
+            }
+            
+            .circle-text {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Rotating Logo - matches your other pages -->
-    <div class="rotating-logo">
-        <div class="rotating-text">
-            <span>SIGNATURE</span>
-            <span>BARBERS</span>
-        </div>
-    </div>
-
-    <!-- Navigation - matches your other pages -->
+    <!-- Navigation - Your existing navigation -->
     <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="services.html">Services</a>
@@ -298,55 +495,53 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Hero Section with Rolling Background -->
-    <section class="hero">
-        <!-- Rolling Background Images -->
+    <!-- Hero Section - EXACTLY like my design with spinning text at TOP LEFT -->
+    <div class="hero">
         <div class="rolling-bg">
+            <!-- Image track with your images -->
             <div class="image-track">
-                <!-- Your local images - repeated for seamless loop -->
-                <img src="images/signature2.jpg" alt="Barbershop interior" loading="lazy">
-                <img src="images/signature3.jpg" alt="Haircut service" loading="lazy">
-                <img src="images/signature4.jpg" alt="Fade haircut" loading="lazy">
-                <img src="images/signature5.jpg" alt="Beard trim" loading="lazy">
-                <img src="images/signature2.jpg" alt="Barbershop interior" loading="lazy">
-                <img src="images/signature3.jpg" alt="Haircut service" loading="lazy">
-                <img src="images/signature4.jpg" alt="Fade haircut" loading="lazy">
-                <img src="images/signature5.jpg" alt="Beard trim" loading="lazy">
+                <img src="images/signature2.jpg" alt="Barbershop" loading="lazy">
+                <img src="images/signature3.jpg" alt="Haircut" loading="lazy">
+                <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy">
+                <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
+                <img src="images/signature2.jpg" alt="Barbershop" loading="lazy">
+                <img src="images/signature3.jpg" alt="Haircut" loading="lazy">
+                <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy">
+                <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
+            </div>
+            
+            <!-- Overlay with text and buttons - exactly like my design -->
+            <div class="overlay">
+                <div class="overlay-content">
+                    <div class="tagline">✂️ PRECISION IN EVERY CUT</div>
+                    <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
+                    <div class="address">Conveniently located near Grays Town centre</div>
+                    <div class="buttons">
+                        <a href="https://maps.google.com/?q=Grays+Town+centre" target="_blank" class="btn btn-primary">Find Us</a>
+                        <a href="booking.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spinning white SIGNATURE text - MOVED TO TOP LEFT -->
+            <div class="spinning-wrapper">
+                <div class="circle-text">
+                    <svg viewBox="0 0 100 100">
+                        <defs>
+                            <path id="topLeftCircle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                        </defs>
+                        <!-- Only SIGNATURE text, white, no symbols -->
+                        <text fill="#FFFFFF" font-weight="700" font-size="14" letter-spacing="4">
+                            <textPath href="#topLeftCircle" startOffset="0%">SIGNATURE SIGNATURE SIGNATURE</textPath>
+                        </text>
+                    </svg>
+                </div>
+                <div class="center-diamond"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Hero Content Overlay -->
-        <div class="hero-overlay">
-            <div class="hero-tagline"> PRECISION IN EVERY CUT</div>
-            <h1 class="hero-title">Signature <span>Barbing</span><br>Unisex Salon</h1>
-            <div class="hero-address">
-                <i class="fas fa-map-marker-alt"></i>
-                Conveniently located near Grays Town centre
-            </div>
-            <div class="hero-buttons">
-                <a href="https://maps.google.com/?q=Grays+Town+centre" target="_blank" class="hero-btn hero-btn-primary">Find Us</a>
-                <a href="booking.html" class="hero-btn hero-btn-outline">Book Now</a>
-            </div>
-        </div>
-
-        <!-- Spinning White SIGNATURE Text -->
-        <div class="spinning-wrapper">
-            <div class="circle-text">
-                <svg viewBox="0 0 100 100">
-                    <defs>
-                        <path id="whiteCircle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                    </defs>
-                    <!-- Only SIGNATURE text, no symbols, all white -->
-                    <text fill="#FFFFFF" font-weight="700" font-size="13" letter-spacing="5" font-family="Inter, Segoe UI, sans-serif">
-                        <textPath href="#whiteCircle" startOffset="0%">SIGNATURE SIGNATURE SIGNATURE</textPath>
-                    </text>
-                </svg>
-            </div>
-            <div class="center-diamond"></div>
-        </div>
-    </section>
-
-    <!-- Welcome Section - matches your other pages -->
+    <!-- Welcome Section - Keep this -->
     <section class="welcome">
         <div class="container">
             <h1>Signature Barbers – Grays</h1>
@@ -357,31 +552,9 @@
         </div>
     </section>
 
-    <!-- Quick Stats - matches your other pages -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5000+</div>
-                    <div class="stat-label">Happy Clients</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Expert Barbers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5.0</div>
-                    <div class="stat-label">Star Rating</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- STATS SECTION REMOVED - as requested -->
 
-    <!-- AI Chat Widget - matches your other pages -->
+    <!-- AI Chat Widget - Your existing -->
     <div class="chat-widget">
         <button class="chat-toggle">
             <i class="fas fa-robot"></i>
@@ -401,34 +574,20 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Mobile menu toggle - uses your existing main.js functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mainNav = document.querySelector('.main-nav');
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
 
-            if (mobileMenuBtn && mainNav) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
-                        ? '<i class="fas fa-times"></i>' 
-                        : '<i class="fas fa-bars"></i>';
-                });
-            }
+        // Chat widget toggle
+        document.querySelector('.chat-toggle')?.addEventListener('click', function() {
+            document.querySelector('.chat-container').classList.toggle('active');
+        });
 
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.main-nav a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        mainNav.classList.remove('active');
-                        if (mobileMenuBtn) {
-                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                        }
-                    }
-                });
-            });
+        document.querySelector('.chat-close')?.addEventListener('click', function() {
+            document.querySelector('.chat-container').classList.remove('active');
         });
     </script>
 </body>
