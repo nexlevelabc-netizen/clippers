@@ -7,20 +7,237 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* Additional styles that blend with your existing CSS */
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+            pointer-events: none;
+            color: var(--white);
+        }
+
+        .hero-content * {
+            pointer-events: auto;
+        }
+
+        .hero-tagline {
+            color: var(--yellow-dark);
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            color: var(--white);
+        }
+
+        .hero-title span {
+            color: var(--yellow-dark);
+            border-bottom: 3px solid var(--yellow-dark);
+            padding-bottom: 5px;
+        }
+
+        .hero-address {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-address i {
+            color: var(--yellow-dark);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-btn {
+            padding: 14px 36px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn-primary {
+            background: var(--yellow-dark);
+            color: var(--black);
+            border-color: var(--yellow-dark);
+        }
+
+        .hero-btn-primary:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .hero-btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Spinning text container - using your brand colors */
+        .spinning-text-container {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 150px;
+            height: 150px;
+            z-index: 30;
+            pointer-events: none;
+        }
+
+        .spinning-circle {
+            width: 100%;
+            height: 100%;
+            animation: spin 12s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .spinning-circle svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.3));
+        }
+
+        .spinning-circle text {
+            fill: var(--yellow-dark);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .center-diamond {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 32px;
+            height: 32px;
+            background: var(--yellow-dark);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            box-shadow: 0 0 25px var(--yellow-dark);
+            z-index: 31;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Responsive adjustments using your existing breakpoints */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 0 5%;
+                align-items: center;
+                text-align: center;
+                background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-address {
+                font-size: 1rem;
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .spinning-text-container {
+                width: 100px;
+                height: 100px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-btn {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Adjust hero height to work with your existing slider */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Ensure your rotating logo stays on top */
+        .rotating-logo {
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
-    <!-- Rotating Logo - FIXED: Only two texts now -->
+    <!-- Rotating Logo - Using your existing structure -->
     <div class="rotating-logo">
-        <div class="logo-circle"></div>
         <div class="rotating-text">
-            <span>SIGNATURE</span>
-            <span>BARBERS</span>
             <span>SIGNATURE</span>
             <span>BARBERS</span>
         </div>
     </div>
 
-    <!-- Navigation - FIXED: Added proper spacing -->
+    <!-- Navigation - Your existing navigation -->
     <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="services.html">Services</a>
@@ -36,7 +253,7 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Hero Section with Slider - FIXED: Full view images -->
+    <!-- Hero Section with Slider - Updated with your image content -->
     <section class="hero">
         <div class="hero-slider">
             <div class="swiper hero-swiper">
@@ -56,9 +273,42 @@
                 </div>
             </div>
         </div>
+
+        <!-- Hero Content Overlay - Using your brand colors -->
+        <div class="hero-content">
+            <div class="hero-tagline">✂️ PRECISION IN EVERY CUT</div>
+            <h1 class="hero-title">3D <span>Afro & European</span><br>Unisex Salon</h1>
+            <div class="hero-address">
+                <i class="fas fa-map-marker-alt"></i>
+                Conveniently located near Shepherd's Bush Market station
+            </div>
+            <div class="hero-buttons">
+                <a href="#" class="hero-btn hero-btn-primary">Find Us</a>
+                <a href="#" class="hero-btn hero-btn-outline">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Spinning Text Element - Using your brand colors -->
+        <div class="spinning-text-container">
+            <div class="spinning-circle">
+                <svg viewBox="0 0 100 100">
+                    <defs>
+                        <path id="textCircle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                    </defs>
+                    <circle cx="50" cy="50" r="43" fill="none" stroke="var(--yellow-dark)" stroke-width="1.2" stroke-dasharray="4 8" opacity="0.6"/>
+                    <text fill="var(--yellow-dark)" font-size="12" font-weight="700" letter-spacing="5">
+                        <textPath href="#textCircle" startOffset="0%">• S I G N A T U R E • ✦ • S I G N A T U R E •</textPath>
+                    </text>
+                    <text fill="var(--yellow-dark)" font-size="12" font-weight="700" letter-spacing="5">
+                        <textPath href="#textCircle" startOffset="50%">✦ • S I G N A T U R E • ✦ • S I G N A T U R E</textPath>
+                    </text>
+                </svg>
+            </div>
+            <div class="center-diamond"></div>
+        </div>
     </section>
 
-    <!-- Welcome Section -->
+    <!-- Welcome Section - Your existing section -->
     <section class="welcome">
         <div class="container">
             <h1>Signature Barbers – Grays</h1>
@@ -69,7 +319,7 @@
         </div>
     </section>
 
-    <!-- Quick Stats -->
+    <!-- Quick Stats - Your existing section -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
@@ -93,7 +343,7 @@
         </div>
     </section>
 
-    <!-- AI Chat Widget -->
+    <!-- AI Chat Widget - Your existing widget -->
     <div class="chat-widget">
         <button class="chat-toggle">
             <i class="fas fa-robot"></i>
@@ -116,7 +366,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Initialize Swiper
+        // Initialize Swiper - Your existing slider
         const swiper = new Swiper('.hero-swiper', {
             loop: true,
             autoplay: {
@@ -127,6 +377,11 @@
             fadeEffect: {
                 crossFade: true
             },
+        });
+
+        // Mobile menu toggle - Your existing functionality
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
         });
     </script>
 </body>
