@@ -4,24 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signature Barbers - Grays | Home</title>
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Hero Section with Rolling Background - EXACTLY like your one */
+        /* CSS Reset and Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
-            background: #0b0b0b;
-            min-height: 100vh;
-            color: #262626;
+        :root {
+            --primary-yellow: #FEF3C7;
+            --yellow-light: #FFFBEB;
+            --yellow-medium: #FDE68A;
+            --yellow-dark: #F59E0B;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --blue-purple: #7C3AED;
+            --blue-purple-light: #8B5CF6;
+            --blue-purple-dark: #5B21B6;
+            --gray-light: #F5F5F5;
+            --gray-medium: #737373;
+            --gray-dark: #262626;
+            --black: #0A0A0A;
+            --gold: #e6b04c;
+            --gold-dark: #e0b974;
+            
+            --instagram: #E4405F;
+            --facebook: #1877F2;
+            --twitter: #1DA1F2;
+            --tiktok: #000000;
+            
+            --font-sans: 'Segoe UI', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --container-max: 1200px;
         }
 
-        /* Navigation - Keeping your existing */
+        body {
+            font-family: var(--font-sans);
+            background: #0b0b0b;
+            min-height: 100vh;
+            color: var(--gray-dark);
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
         .main-nav {
             position: fixed;
             top: 20px;
@@ -37,7 +69,7 @@
             display: inline-block;
             padding: 0.5rem 1rem;
             background: rgba(255, 255, 255, 0.95);
-            color: #0A0A0A;
+            color: var(--black);
             text-decoration: none;
             font-weight: 600;
             border-radius: 8px;
@@ -49,20 +81,20 @@
         }
 
         .main-nav a:hover {
-            background: #FFFFFF;
+            background: var(--white);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .main-nav a.active {
-            background: #7C3AED;
-            color: #FFFFFF;
-            border-color: #7C3AED;
+            background: var(--blue-purple);
+            color: var(--white);
+            border-color: var(--blue-purple);
         }
 
         .main-nav a.phone-icon {
-            background: #F59E0B;
-            color: #FFFFFF;
+            background: var(--yellow-dark);
+            color: var(--white);
             border: none;
         }
 
@@ -77,8 +109,8 @@
             right: 20px;
             width: 40px;
             height: 40px;
-            background: #0A0A0A;
-            color: #FFFFFF;
+            background: var(--black);
+            color: var(--white);
             border: none;
             border-radius: 8px;
             font-size: 1.2rem;
@@ -86,7 +118,7 @@
             z-index: 1001;
         }
 
-        /* Hero Section Container */
+        /* Hero Section */
         .hero {
             width: 1280px;
             max-width: 95vw;
@@ -98,11 +130,11 @@
             margin: 80px auto 0;
         }
 
-        /* Rolling Gallery - Now only the images, no overlay text */
+        /* Rolling Gallery */
         .rolling-bg {
             position: relative;
             width: 100%;
-            height: 400px; /* Reduced height to leave space for text below */
+            height: 400px;
             overflow: hidden;
             background: #1e1a17;
         }
@@ -132,94 +164,7 @@
             animation-play-state: paused;
         }
 
-        /* Hero Text Content - Now positioned BELOW the rolling gallery */
-        .hero-content {
-            background: #121212;
-            padding: 3rem 4rem;
-            color: white;
-            width: 100%;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #e0b974;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 10px #00000080;
-            color: white;
-        }
-
-        .h1-highlight {
-            color: #e6c27a;
-            border-bottom: 3px solid #e6c27a;
-            padding-bottom: 4px;
-        }
-
-        .address {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-            font-weight: 300;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .address::before {
-            content: '📍';
-            font-size: 1.6rem;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn {
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.8rem 2.2rem;
-            border-radius: 50px;
-            transition: all 0.25s ease;
-            display: inline-block;
-            letter-spacing: 1px;
-            border: 2px solid transparent;
-            background: #ffffff20;
-            backdrop-filter: blur(8px);
-            color: white;
-            border-color: #ffffff60;
-        }
-
-        .btn-primary {
-            background: #e6b04c;
-            border-color: #e6b04c;
-            color: #121212;
-            font-weight: 700;
-            box-shadow: 0 8px 20px #e6b04c50;
-        }
-        .btn-primary:hover {
-            background: #f8c56c;
-            border-color: #f8c56c;
-            transform: scale(1.05);
-            color: #0a0a0a;
-        }
-        .btn-outline:hover {
-            background: #ffffff30;
-            border-color: #fff;
-            transform: translateY(-3px);
-        }
-
-        /* Spinning text - Positioned relative to the rolling gallery */
+        /* Spinning text */
         .spinning-wrapper {
             position: absolute;
             bottom: 20px;
@@ -259,11 +204,154 @@
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 4px;
-            font-family: 'Segoe UI', 'Poppins', sans-serif;
+            font-family: var(--font-sans);
             text-transform: uppercase;
         }
 
-        /* Welcome Section - Simplified as requested */
+        /* Hero Text Content - Centered modern styling */
+        .hero-content {
+            background: #121212;
+            padding: 4rem 2rem;
+            color: white;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content-inner {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .modern-tagline {
+            font-size: 1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .modern-tagline::before,
+        .modern-tagline::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        .modern-tagline::before {
+            left: -40px;
+        }
+
+        .modern-tagline::after {
+            right: -40px;
+        }
+
+        .modern-title {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .signature-text {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: white;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .barbing-text {
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 4px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .unisex-text {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 3px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .modern-location {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 300;
+        }
+
+        .location-icon {
+            color: var(--gold);
+            width: 20px;
+            height: 20px;
+        }
+
+        .modern-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .modern-btn {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+            min-width: 160px;
+        }
+
+        .modern-btn-primary {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #121212;
+        }
+
+        .modern-btn-primary:hover {
+            background: #f8c56c;
+            border-color: #f8c56c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(230, 176, 76, 0.3);
+        }
+
+        .modern-btn-outline {
+            background: transparent;
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .modern-btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Welcome Section */
         .welcome {
             padding: 2rem 1.5rem 3rem;
             text-align: center;
@@ -274,16 +362,13 @@
 
         .welcome .tagline {
             font-size: 1.5rem;
-            color: #e0b974;
+            color: var(--gold-dark);
             margin-bottom: 0;
             font-weight: 600;
             letter-spacing: 1px;
-            background: transparent;
-            backdrop-filter: none;
-            padding: 0;
         }
 
-        /* Chat Widget - Your existing */
+        /* Chat Widget */
         .chat-widget {
             position: fixed;
             bottom: 2rem;
@@ -295,8 +380,8 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: #7C3AED;
-            color: white;
+            background: var(--blue-purple);
+            color: var(--white);
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
@@ -305,7 +390,7 @@
         }
 
         .chat-toggle:hover {
-            background: #5B21B6;
+            background: var(--blue-purple-dark);
             transform: scale(1.05);
         }
 
@@ -314,7 +399,7 @@
             bottom: 70px;
             right: 0;
             width: 350px;
-            background: white;
+            background: var(--white);
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             display: none;
@@ -326,8 +411,8 @@
         }
 
         .chat-header {
-            background: #7C3AED;
-            color: white;
+            background: var(--blue-purple);
+            color: var(--white);
             padding: 1rem;
             display: flex;
             justify-content: space-between;
@@ -337,7 +422,7 @@
         .chat-close {
             background: none;
             border: none;
-            color: white;
+            color: var(--white);
             font-size: 1.2rem;
             cursor: pointer;
         }
@@ -346,7 +431,7 @@
             height: 300px;
             padding: 1rem;
             overflow-y: auto;
-            background: #FAFAFA;
+            background: var(--off-white);
         }
 
         .message {
@@ -355,15 +440,15 @@
         }
 
         .message.ai {
-            background: white;
+            background: var(--white);
             padding: 0.75rem 1rem;
             border-radius: 12px 12px 12px 0;
-            border: 1px solid #FDE68A;
+            border: 1px solid var(--yellow-medium);
         }
 
         .message.user {
-            background: #7C3AED;
-            color: white;
+            background: var(--blue-purple);
+            color: var(--white);
             padding: 0.75rem 1rem;
             border-radius: 12px 12px 0 12px;
             margin-left: auto;
@@ -372,22 +457,23 @@
         .chat-input {
             display: flex;
             padding: 1rem;
-            border-top: 1px solid #FDE68A;
+            border-top: 1px solid var(--yellow-medium);
             gap: 0.5rem;
         }
 
         .chat-input input {
             flex: 1;
             padding: 0.75rem;
-            border: 1px solid #FDE68A;
+            border: 1px solid var(--yellow-medium);
             border-radius: 8px;
+            font-family: var(--font-sans);
         }
 
         .voice-btn {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: #FDE68A;
+            background: var(--yellow-medium);
             border: none;
             cursor: pointer;
         }
@@ -399,7 +485,7 @@
                 flex-direction: column;
                 top: 70px;
                 right: 20px;
-                background: white;
+                background: var(--white);
                 padding: 1rem;
                 border-radius: 12px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -427,11 +513,43 @@
             }
             
             .hero-content {
-                padding: 2rem;
+                padding: 3rem 1.5rem;
             }
             
-            h1 {
-                font-size: 2.5rem;
+            .modern-tagline::before,
+            .modern-tagline::after {
+                width: 20px;
+            }
+            
+            .modern-tagline::before {
+                left: -25px;
+            }
+            
+            .modern-tagline::after {
+                right: -25px;
+            }
+            
+            .signature-text {
+                font-size: 3rem;
+            }
+            
+            .barbing-text {
+                font-size: 2.2rem;
+            }
+            
+            .unisex-text {
+                font-size: 1.2rem;
+            }
+            
+            .modern-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .modern-btn {
+                width: 100%;
+                max-width: 250px;
             }
 
             .spinning-wrapper {
@@ -446,10 +564,24 @@
                 height: 100px;
             }
         }
+
+        @media (max-width: 480px) {
+            .signature-text {
+                font-size: 2.2rem;
+            }
+            
+            .barbing-text {
+                font-size: 1.8rem;
+            }
+            
+            .unisex-text {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation - Your existing navigation -->
+    <!-- Navigation -->
     <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="services.html">Services</a>
@@ -469,16 +601,16 @@
     <div class="hero">
         <!-- Rolling Gallery - NO TEXT OVERLAY -->
         <div class="rolling-bg">
-            <!-- Image track with your images -->
+            <!-- Image track with your images - with fallbacks -->
             <div class="image-track">
-                <img src="images/signature2.jpg" alt="Barbershop" loading="lazy">
-                <img src="images/signature3.jpg" alt="Haircut" loading="lazy">
-                <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy">
-                <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
-                <img src="images/signature2.jpg" alt="Barbershop" loading="lazy">
-                <img src="images/signature3.jpg" alt="Haircut" loading="lazy">
-                <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy">
-                <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
+                <img src="images/signature2.jpg" alt="Barbershop" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop'">
+                <img src="images/signature3.jpg" alt="Haircut" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&auto=format&fit=crop'">
+                <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&auto=format&fit=crop'">
+                <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&auto=format&fit=crop'">
+                <img src="images/signature2.jpg" alt="Barbershop" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop'">
+                <img src="images/signature3.jpg" alt="Haircut" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&auto=format&fit=crop'">
+                <img src="images/signature4.jpg" alt="Fade Trim" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&auto=format&fit=crop'">
+                <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&auto=format&fit=crop'">
             </div>
 
             <!-- Spinning white SIGNATURE text - on the rolling gallery -->
@@ -497,26 +629,37 @@
             </div>
         </div>
 
-        <!-- Hero Text Content - NOW BELOW the rolling gallery in the empty space -->
+        <!-- Hero Text Content - Centered with modern styling -->
         <div class="hero-content">
-            <div class="tagline">PRECISION IN EVERY CUT</div>
-            <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
-            <div class="address">Conveniently located in Grays Town centre</div>
-            <div class="buttons">
-                <a href="contact.html" class="btn btn-primary">Find Us</a>
-                <a href="booking.html" class="btn btn-outline">Book Now</a>
+            <div class="hero-content-inner">
+                <div class="modern-tagline">PRECISION IN EVERY CUT</div>
+                <h1 class="modern-title">
+                    <span class="signature-text">Signature</span> 
+                    <span class="barbing-text">Barbing</span>
+                    <span class="unisex-text">Unisex Salon</span>
+                </h1>
+                <div class="modern-location">
+                    <svg class="location-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                    </svg>
+                    <span>Conveniently located in Grays Town centre</span>
+                </div>
+                <div class="modern-buttons">
+                    <a href="contact.html" class="modern-btn modern-btn-primary">Find Us</a>
+                    <a href="booking.html" class="modern-btn modern-btn-outline">Book Now</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Welcome Section - ONLY the tagline as requested -->
+    <!-- Welcome Section - ONLY the tagline -->
     <section class="welcome">
         <div class="container">
             <p class="tagline">Modern Grooming. Smart Booking. Personal Service.</p>
         </div>
     </section>
 
-    <!-- AI Chat Widget - Your existing -->
+    <!-- AI Chat Widget -->
     <div class="chat-widget">
         <button class="chat-toggle">
             <i class="fas fa-robot"></i>
@@ -536,20 +679,123 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
             document.querySelector('.main-nav').classList.toggle('active');
+            this.innerHTML = document.querySelector('.main-nav').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.main-nav').classList.remove('active');
+                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
         });
 
         // Chat widget toggle
-        document.querySelector('.chat-toggle')?.addEventListener('click', function() {
-            document.querySelector('.chat-container').classList.toggle('active');
-        });
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatContainer = document.querySelector('.chat-container');
+        const chatClose = document.querySelector('.chat-close');
+        const chatInput = document.querySelector('.chat-input input');
+        const voiceBtn = document.querySelector('.voice-btn');
+        const chatMessages = document.querySelector('.chat-messages');
 
-        document.querySelector('.chat-close')?.addEventListener('click', function() {
-            document.querySelector('.chat-container').classList.remove('active');
+        if (chatToggle) {
+            chatToggle.addEventListener('click', () => {
+                chatContainer.classList.toggle('active');
+            });
+        }
+
+        if (chatClose) {
+            chatClose.addEventListener('click', () => {
+                chatContainer.classList.remove('active');
+            });
+        }
+
+        // Voice input
+        if (voiceBtn) {
+            voiceBtn.addEventListener('click', () => {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    const recognition = new SpeechRecognition();
+                    
+                    recognition.onresult = (event) => {
+                        const transcript = event.results[0][0].transcript;
+                        if (chatInput) {
+                            chatInput.value = transcript;
+                            processMessage(transcript);
+                        }
+                    };
+                    
+                    recognition.start();
+                } else {
+                    alert('Voice input is not supported in your browser');
+                }
+            });
+        }
+
+        // Simple AI responses
+        function processMessage(message) {
+            if (!chatMessages) return;
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = message;
+            chatMessages.appendChild(userMsg);
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'message ai';
+                
+                const lowerMsg = message.toLowerCase();
+                if (lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('how much')) {
+                    aiMsg.textContent = 'Our services start from £15 for beard grooming, £25 for haircuts, and £30 for hot towel shaves. Check our Services page for full pricing!';
+                } else if (lowerMsg.includes('book') || lowerMsg.includes('appointment')) {
+                    aiMsg.textContent = 'You can book online through our Booking page or call us at 01234 567 890. Would you like me to help you with the booking process?';
+                } else if (lowerMsg.includes('hour') || lowerMsg.includes('open') || lowerMsg.includes('close')) {
+                    aiMsg.textContent = 'We\'re open Mon-Fri 9AM-7PM, Sat 8AM-6PM, Sun 10AM-4PM.';
+                } else if (lowerMsg.includes('barber') || lowerMsg.includes('stylist')) {
+                    aiMsg.textContent = 'We have 4 expert barbers: Marcus (fade specialist), James (beard expert), Alex (style consultant), and Sam (master barber). Check our Our Barbers page to learn more!';
+                } else if (lowerMsg.includes('location') || lowerMsg.includes('address') || lowerMsg.includes('where')) {
+                    aiMsg.textContent = 'We are located at 13 Orsett Road, Grays, Essex, RM17 5DS. Visit our Contact page for directions and map!';
+                } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+                    aiMsg.textContent = 'Hello! Welcome to Signature Barbers. How can I assist you today?';
+                } else {
+                    aiMsg.textContent = 'Thanks for your message! I can help with bookings, pricing, barber information, or questions about our services.';
+                }
+                
+                chatMessages.appendChild(aiMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            if (chatInput) chatInput.value = '';
+        }
+
+        // Send message on Enter
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && chatInput.value.trim()) {
+                    processMessage(chatInput.value.trim());
+                }
+            });
+        }
+
+        // Close chat when clicking outside
+        document.addEventListener('click', (e) => {
+            if (chatContainer && chatContainer.classList.contains('active')) {
+                if (!chatContainer.contains(e.target) && !chatToggle.contains(e.target)) {
+                    chatContainer.classList.remove('active');
+                }
+            }
         });
     </script>
 </body>
