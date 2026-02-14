@@ -130,7 +130,8 @@ function updateSummary() {
 
 // Form submission
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault(); // This stops the page from refreshing
+    console.log('Form submitted - preventing default');
     
     // Validate all fields
     const firstName = document.getElementById('first-name').value;
@@ -149,32 +150,34 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
         return;
     }
     
-    if (!selectedService || !selectedBarber || !selectedDate || !selectedTime) {
-        alert('Missing booking information. Please start over.');
+    // Get service price - FIX THIS PART
+    const serviceSelected = document.querySelector('input[name="service"]:checked');
+    if (!serviceSelected) {
+        alert('Service information missing. Please start over.');
         window.location.href = 'booking.html';
         return;
     }
     
-    // Store booking data in sessionStorage to pass to payment page
+    const servicePrice = serviceSelected.getAttribute('data-price');
+    
+    // Store booking data
     const bookingData = {
         firstName,
         lastName,
         email,
         phone,
-        service: selectedService.text,
-        serviceValue: selectedService.value,
-        servicePrice: selectedService.price,
-        barber: selectedBarber.text,
-        barberValue: selectedBarber.value,
+        service: serviceSelected.closest('.service-option').querySelector('h4').textContent,
+        servicePrice: servicePrice,
+        barber: document.querySelector('input[name="barber"]:checked')?.closest('.barber-option').querySelector('h4').textContent || 'Not selected',
         date: selectedDate,
         time: selectedTime,
-        total: selectedService.price,
         paymentMethod,
         notes: document.getElementById('notes').value
     };
     
+    console.log('Booking data saved:', bookingData);
     sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
     
     // Redirect to payment page
+    console.log('Redirecting to payment.html');
     window.location.href = 'payment.html';
-});
