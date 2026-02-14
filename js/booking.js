@@ -14,7 +14,11 @@ function nextStep(step) {
             alert('Please select a service to continue');
             return;
         }
-        selectedService = serviceSelected.value;
+        selectedService = {
+            value: serviceSelected.value,
+            price: serviceSelected.getAttribute('data-price'),
+            text: serviceSelected.closest('.service-option').querySelector('h4').textContent
+        };
         updateSummary();
     } else if (step === 2) {
         const barberSelected = document.querySelector('input[name="barber"]:checked');
@@ -26,7 +30,10 @@ function nextStep(step) {
             alert('Please select date and time to continue');
             return;
         }
-        selectedBarber = barberSelected.value;
+        selectedBarber = {
+            value: barberSelected.value,
+            text: barberSelected.closest('.barber-option').querySelector('h4').textContent
+        };
         updateSummary();
     }
     
@@ -99,22 +106,13 @@ function updateSummary() {
     
     // Update service
     if (selectedService) {
-        const serviceOption = document.querySelector(`input[name="service"][value="${selectedService}"]`);
-        if (serviceOption) {
-            const serviceText = serviceOption.closest('.service-option').querySelector('h4').textContent;
-            const servicePrice = serviceOption.getAttribute('data-price');
-            summaryService.textContent = `${serviceText} - £${servicePrice}`;
-            summaryTotal.textContent = `£${servicePrice}`;
-        }
+        summaryService.textContent = `${selectedService.text} - £${selectedService.price}`;
+        summaryTotal.textContent = `£${selectedService.price}`;
     }
     
     // Update barber
     if (selectedBarber) {
-        const barberOption = document.querySelector(`input[name="barber"][value="${selectedBarber}"]`);
-        if (barberOption) {
-            const barberText = barberOption.closest('.barber-option').querySelector('h4').textContent;
-            summaryBarber.textContent = barberText;
-        }
+        summaryBarber.textContent = selectedBarber.text;
     }
     
     // Update date and time
@@ -151,10 +149,11 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
         return;
     }
     
-    // Get booking details for the payment page
-    const service = document.querySelector('input[name="service"]:checked')?.value;
-    const barber = document.querySelector('input[name="barber"]:checked')?.value;
-    const servicePrice = document.querySelector('input[name="service"]:checked')?.getAttribute('data-price');
+    if (!selectedService || !selectedBarber || !selectedDate || !selectedTime) {
+        alert('Missing booking information. Please start over.');
+        window.location.href = 'booking.html';
+        return;
+    }
     
     // Store booking data in sessionStorage to pass to payment page
     const bookingData = {
@@ -162,22 +161,20 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
         lastName,
         email,
         phone,
-        service,
-        barber,
+        service: selectedService.text,
+        serviceValue: selectedService.value,
+        servicePrice: selectedService.price,
+        barber: selectedBarber.text,
+        barberValue: selectedBarber.value,
         date: selectedDate,
         time: selectedTime,
-        price: servicePrice,
+        total: selectedService.price,
         paymentMethod,
         notes: document.getElementById('notes').value
     };
     
     sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
     
-    // Redirect to payment page based on payment method
-    if (paymentMethod === 'card') {
-        window.location.href = 'payment.html';
-    } else {
-        // If pay in shop, go directly to confirmation
-        window.location.href = 'booking-confirmation.html?method=cash';
-    }
+    // Redirect to payment page
+    window.location.href = 'payment.html';
 });
