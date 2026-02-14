@@ -37,7 +37,6 @@ body {
     background: #0b0b0b;
     min-height: 100vh;
     color: var(--gray-dark);
-    padding-top: 80px; /* Added padding to prevent navigation interference */
 }
 
 .container {
