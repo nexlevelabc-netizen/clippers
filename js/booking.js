@@ -139,29 +139,45 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     const lastName = document.getElementById('last-name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
+    const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value;
     
     if (!firstName || !lastName || !email || !phone) {
         alert('Please fill in all required fields');
         return;
     }
     
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
+    if (!paymentMethod) {
+        alert('Please select a payment method');
         return;
     }
     
-    // Phone validation (simple UK format)
-    const phoneRegex = /^[0-9\s\+\-\(\)]{10,}$/;
-    if (!phoneRegex.test(phone)) {
-        alert('Please enter a valid phone number');
-        return;
+    // Get booking details for the payment page
+    const service = document.querySelector('input[name="service"]:checked')?.value;
+    const barber = document.querySelector('input[name="barber"]:checked')?.value;
+    const servicePrice = document.querySelector('input[name="service"]:checked')?.getAttribute('data-price');
+    
+    // Store booking data in sessionStorage to pass to payment page
+    const bookingData = {
+        firstName,
+        lastName,
+        email,
+        phone,
+        service,
+        barber,
+        date: selectedDate,
+        time: selectedTime,
+        price: servicePrice,
+        paymentMethod,
+        notes: document.getElementById('notes').value
+    };
+    
+    sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
+    
+    // Redirect to payment page based on payment method
+    if (paymentMethod === 'card') {
+        window.location.href = 'payment.html';
+    } else {
+        // If pay in shop, go directly to confirmation
+        window.location.href = 'booking-confirmation.html?method=cash';
     }
-    
-    // Here you would typically send the booking data to a server
-    alert('Booking confirmed! We look forward to seeing you.');
-    
-    // Redirect to home page or show success message
-    // window.location.href = 'index.html';
 });
