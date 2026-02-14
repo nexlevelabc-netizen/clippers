@@ -95,13 +95,13 @@
             overflow: hidden;
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 215, 0, 0.2) inset;
             position: relative;
-            margin: 80px auto 20px;
+            margin: 80px auto 0;
         }
 
         .rolling-bg {
             position: relative;
             width: 100%;
-            height: 500px;
+            height: 600px; /* Increased height to accommodate text below */
             overflow: hidden;
             background: #1e1a17;
         }
@@ -131,24 +131,21 @@
             animation-play-state: paused;
         }
 
-        /* Dark overlay - exactly like your one */
-        .overlay {
+        /* Content container - positioned at bottom of rolling background */
+        .hero-content {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 90%);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             padding: 3rem 4rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
             color: white;
-            z-index: 10;
+            z-index: 20;
             pointer-events: none;
         }
 
-        .overlay-content {
+        .hero-content * {
             pointer-events: auto;
-            max-width: 600px;
         }
 
         .tagline {
@@ -158,16 +155,14 @@
             color: #e0b974;
             font-weight: 400;
             margin-bottom: 0.5rem;
-            backdrop-filter: blur(2px);
             display: inline-block;
-            padding: 0.2rem 1rem 0.2rem 0;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 600;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             text-shadow: 2px 2px 10px #00000080;
             color: white;
         }
@@ -179,8 +174,8 @@
         }
 
         .address {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             opacity: 0.9;
             font-weight: 300;
             display: flex;
@@ -200,8 +195,8 @@
         .btn {
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.2rem;
-            padding: 0.9rem 2.5rem;
+            font-size: 1.1rem;
+            padding: 0.8rem 2.2rem;
             border-radius: 50px;
             transition: all 0.25s ease;
             display: inline-block;
@@ -235,7 +230,7 @@
         /* Spinning text - exactly where it was in your one (bottom right) */
         .spinning-wrapper {
             position: absolute;
-            bottom: 30px;
+            bottom: 200px; /* Moved up to sit above the content */
             right: 40px;
             width: 140px;
             height: 140px;
@@ -276,23 +271,11 @@
             text-transform: uppercase;
         }
 
-        .center-diamond {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 26px;
-            height: 26px;
-            background: #FFFFFF;
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            box-shadow: 0 0 15px #FFFFFF;
-            z-index: 32;
-            pointer-events: none;
-        }
+        /* DIAMOND REMOVED - no center-diamond class */
 
         /* Welcome Section - Simplified as requested */
         .welcome {
-            padding: 3rem 1.5rem;
+            padding: 2rem 1.5rem 3rem;
             text-align: center;
             background: #0b0b0b;
             max-width: 1200px;
@@ -450,10 +433,10 @@
             }
             
             .rolling-bg {
-                height: 400px;
+                height: 500px;
             }
             
-            .overlay {
+            .hero-content {
                 padding: 2rem;
             }
             
@@ -464,7 +447,7 @@
             .spinning-wrapper {
                 width: 100px;
                 height: 100px;
-                bottom: 15px;
+                bottom: 150px;
                 right: 15px;
             }
             
@@ -492,7 +475,7 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Hero Section - EXACTLY like your one with black background -->
+    <!-- Hero Section with Rolling Background -->
     <div class="hero">
         <div class="rolling-bg">
             <!-- Image track with your images -->
@@ -507,21 +490,18 @@
                 <img src="images/signature5.jpg" alt="Beard Trim" loading="lazy">
             </div>
             
-            <!-- Overlay with text and buttons - exactly like your one -->
-            <div class="overlay">
-                <div class="overlay-content">
-                    <div class="tagline">✂️ PRECISION IN EVERY CUT</div>
-                    <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
-                    <div class="address">Conveniently located near Grays Town centre</div>
-                    <div class="buttons">
-                        <!-- Find Us now links to contact page instead of external map -->
-                        <a href="contact.html" class="btn btn-primary">Find Us</a>
-                        <a href="booking.html" class="btn btn-outline">Book Now</a>
-                    </div>
+            <!-- Hero Content - MOVED TO BOTTOM of rolling background -->
+            <div class="hero-content">
+                <div class="tagline">✂️ PRECISION IN EVERY CUT</div>
+                <h1>Signature <span class="h1-highlight">Barbing</span><br>Unisex Salon</h1>
+                <div class="address">Conveniently located near Grays Town centre</div>
+                <div class="buttons">
+                    <a href="contact.html" class="btn btn-primary">Find Us</a>
+                    <a href="booking.html" class="btn btn-outline">Book Now</a>
                 </div>
             </div>
 
-            <!-- Spinning white SIGNATURE text - EXACTLY where it was in your one (bottom right) -->
+            <!-- Spinning white SIGNATURE text - DIAMOND REMOVED -->
             <div class="spinning-wrapper">
                 <div class="circle-text">
                     <svg viewBox="0 0 100 100">
@@ -534,7 +514,7 @@
                         </text>
                     </svg>
                 </div>
-                <div class="center-diamond"></div>
+                <!-- DIAMOND REMOVED - no center diamond -->
             </div>
         </div>
     </div>
