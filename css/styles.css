@@ -164,20 +164,22 @@ body {
     z-index: 1001;
 }
 
-/* Hero Section */
+/* Hero Section - COMPLETELY UPDATED */
 .hero {
     height: 100vh;
+    width: 100%;
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .hero-slider {
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 100px);
+    height: 100vh;
 }
 
 .swiper {
@@ -187,29 +189,28 @@ body {
 
 .swiper-slide {
     position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0.85);
+    object-fit: cover; /* This makes images cover the full area */
+    object-position: center; /* Centers the image */
+    display: block;
 }
 
-.slide-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(254, 243, 199, 0.6), rgba(255, 251, 235, 0.5));
-    z-index: 2;
-}
+/* REMOVED slide-overlay that was making images faint */
 
-/* Welcome Section */
+/* Welcome Section - Adjust padding to account for full-height hero */
 .welcome {
     padding: 4rem 1.5rem;
     text-align: center;
+    background: linear-gradient(135deg, var(--yellow-light), var(--primary-yellow));
+    position: relative;
+    z-index: 10;
 }
 
 .welcome h1 {
