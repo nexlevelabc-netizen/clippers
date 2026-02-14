@@ -45,7 +45,7 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Rotating Logo - FIXED: Now only shows 4 spans (2x SIGNATURE, 2x BARBERS) */
+/* Rotating Logo - UPDATED: Just text spinning, no circle */
 .rotating-logo {
     position: fixed;
     top: 20px;
@@ -55,14 +55,15 @@ body {
     z-index: 1000;
 }
 
-.logo-circle {
+/* REMOVED the black circle */
+/* .logo-circle {
     position: absolute;
     width: 100%;
     height: 100%;
     border: 2px solid var(--black);
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .rotating-text {
     position: absolute;
@@ -84,11 +85,17 @@ body {
     white-space: nowrap;
 }
 
-/* UPDATED: Only 4 spans now */
-.rotating-text span:nth-child(1) { transform: rotate(0deg); }
-.rotating-text span:nth-child(2) { transform: rotate(90deg); }
-.rotating-text span:nth-child(3) { transform: rotate(180deg); }
-.rotating-text span:nth-child(4) { transform: rotate(270deg); }
+/* UPDATED: Only 2 spans - one for SIGNATURE, one for BARBERS */
+.rotating-text span:nth-child(1) { 
+    transform: rotate(0deg); 
+    color: var(--blue-purple);
+    font-size: 1.2rem;
+}
+.rotating-text span:nth-child(2) { 
+    transform: rotate(180deg); 
+    color: var(--yellow-dark);
+    font-size: 1.2rem;
+}
 
 @keyframes rotateLogo {
     0% { transform: rotate(0deg); }
@@ -121,7 +128,7 @@ body {
     font-family: var(--font-sans) !important;
     font-size: 1rem !important;
     line-height: normal !important;
-    white-space: nowrap !important; /* ADDED: Prevents text from wrapping/merging */
+    white-space: nowrap !important;
 }
 
 .main-nav a:hover {
@@ -162,7 +169,7 @@ body {
     z-index: 1001;
 }
 
-/* Hero Section - FIXED: Full view images without cropping */
+/* Hero Section - FIXED: Images moved down */
 .hero {
     height: 100vh;
     width: 100%;
@@ -190,15 +197,19 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center; /* This centers images vertically */
+    justify-content: center;
 }
 
 .swiper-slide img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* CHANGED from 'cover' to 'contain' to show full images */
+    height: auto; /* Changed from 100% to auto */
+    max-height: 90vh; /* Limits height to 90% of viewport */
+    object-fit: contain;
     object-position: center;
-    background-color: var(--primary-yellow); /* Adds background for letterboxing */
     display: block;
+    margin-top: 5vh; /* Adds space at the top */
 }
 
 /* Welcome Section */
@@ -1004,6 +1015,8 @@ body {
     .rotating-logo {
         width: 100px;
         height: 100px;
+        top: 10px;
+        left: 10px;
     }
     
     .rotating-text span {
@@ -1070,5 +1083,10 @@ body {
 
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .swiper-slide img {
+        max-height: 80vh;
+        margin-top: 10vh;
     }
 }
