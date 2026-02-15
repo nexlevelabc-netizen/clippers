@@ -259,10 +259,16 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
         return;
     }
     
-    // Get service price and text
-    const servicePrice = serviceSelected.getAttribute('data-price');
-    const serviceText = serviceSelected.closest('.service-option').querySelector('h4').textContent;
-    const barberText = barberSelected.closest('.barber-option').querySelector('h4').textContent;
+    // Get service price and text - FIXED
+const servicePrice = serviceSelected.getAttribute('data-price');
+console.log('Service price from data-price:', servicePrice);
+
+// Ensure price is a number and has a value
+let finalPrice = servicePrice || '0';
+console.log('Final price:', finalPrice);
+
+const serviceText = serviceSelected.closest('.service-option').querySelector('h4').textContent;
+const barberText = barberSelected.closest('.barber-option').querySelector('h4').textContent;
     
     // Store booking data
     const bookingData = {
