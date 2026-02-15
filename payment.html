@@ -193,43 +193,71 @@
     </section>
 
     <script>
-        // Load booking summary
-        const bookingData = JSON.parse(sessionStorage.getItem('bookingData'));
-        
-        if (bookingData) {
-            const summaryHtml = `
-                <div class="summary-row">
-                    <span>Service:</span>
-                    <span>${bookingData.service || 'Not selected'}</span>
-                </div>
-                <div class="summary-row">
-                    <span>Barber:</span>
-                    <span>${bookingData.barber || 'Not selected'}</span>
-                </div>
-                <div class="summary-row">
-                    <span>Date & Time:</span>
-                    <span>${bookingData.date} at ${bookingData.time}</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Total:</span>
-                    <span>£${bookingData.price || '0'}</span>
-                </div>
-            `;
-            document.getElementById('bookingSummary').innerHTML = summaryHtml;
+       // Load booking summary
+    const bookingData = JSON.parse(sessionStorage.getItem('bookingData'));
+    console.log('Payment page - booking data:', bookingData); // Debug
+    
+    if (bookingData) {
+        // Format the date nicely
+        let formattedDate = bookingData.date;
+        try {
+            const dateObj = new Date(bookingData.date);
+            formattedDate = dateObj.toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            });
+        } catch (e) {
+            console.log('Date formatting error:', e);
         }
         
-        function processPayment() {
-            // Here you would integrate with a real payment processor like Stripe
-            alert('Payment processed successfully! Your booking is confirmed.');
-            
-            // Clear booking data
-            sessionStorage.removeItem('bookingData');
-            
-            // Redirect to confirmation page or home
-            window.location.href = 'booking-confirmation.html';
-        }
+        // Make sure price is displayed correctly
+        const price = bookingData.servicePrice || '0';
+        
+        const summaryHtml = `
+            <div class="summary-row">
+                <span>Service:</span>
+                <span>${bookingData.service || 'Not selected'}</span>
+            </div>
+            <div class="summary-row">
+                <span>Barber:</span>
+                <span>${bookingData.barber || 'Not selected'}</span>
+            </div>
+            <div class="summary-row">
+                <span>Date & Time:</span>
+                <span>${formattedDate} at ${bookingData.time || ''}</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>£${price}</span>
+            </div>
+        `;
+        document.getElementById('bookingSummary').innerHTML = summaryHtml;
+    } else {
+        // No booking data found
+        document.getElementById('bookingSummary').innerHTML = `
+            <div class="summary-row">
+                <span>No booking information found</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>£0</span>
+            </div>
+        `;
+    }
+    
+    function processPayment() {
+        // Here you would integrate with a real payment processor like Stripe
+        alert('Payment processed successfully! Your booking is confirmed.');
+        
+        // Clear booking data
+        sessionStorage.removeItem('bookingData');
+        
+        // Redirect to confirmation page or home
+        window.location.href = 'booking-confirmation.html';
+    }
     </script>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> focus
 </body>
 </html>
